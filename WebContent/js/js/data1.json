@@ -1,0 +1,10 @@
+{
+  "students": [
+        { "id": 1, "name":"John Smith", "email":"jsmith@example.com"},
+        { "id": 2, "name":"Anna Smith", "email":"asmith@example.com"},
+        { "id": 3, "name":"Peter Smith", "email":"psmith@example.com"},
+        { "id": 4, "name":"Tom Smith", "email":"tsmith@example.com"},
+        { "id": 5, "name":"Andy Smith", "email":"asmith@example.com"},
+        { "id": 6, "name":"Nick Smith", "email":"nsmith@example.com"}
+  ]
+}

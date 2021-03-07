@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+   "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package name="default" extends="json-default">
+		<action name="GridLoad" class="com.highradius.action.MoviesAction" method="MovieGridLoad">
+		   <result name="success" type="json">
+			   <!-- <param name="data">moviesList</param> -->
+			   <!-- <param name="total">totalcount</param> -->
+		   </result>  
+	   </action>
+	   <action name="LanguageLoad" class="com.highradius.action.MoviesAction" method="LangLoad">
+		   <result name="success" type="json">
+			   <!-- <param name="data">langList</param> -->
+		   </result>  
+	   </action>
+	   <action name="RatingsLoad" class="com.highradius.action.MoviesAction" method="RatingLoad">
+		   <result name="success" type="json">
+			   <!-- <param name="data">ratingList</param> -->
+		   </result>  
+	   </action>
+	    <action name="FeaturesLoad" class="com.highradius.action.MoviesAction" method="SpecialFeaturesLoad">
+		   <result name="success" type="json">
+			   <param name="data">featuresList</param>
+		   </result>  
+	   </action>
+	   <action name="SearchMovie" class="com.highradius.action.MoviesAction" method="SearchGrid">
+		   <result name="success" type="json">
+			   <!-- <param name="data">movieSearchList</param>
+			   <param name="total">totalcount</param> -->
+		   </result>  
+	   </action>
+	   <action name="DeleteRecords" class="com.highradius.action.MoviesAction" method="DeleteRecord">
+		   <result name="success" type="json"></result>  
+	   </action>
+	   <action name="AddRecords" class="com.highradius.action.MoviesAction" method="AddMovieRecord">
+		   <result name="success" type="json"></result>  
+	   </action>
+	   <action name="EditRecords" class="com.highradius.action.MoviesAction" method="EditMovieRecord">
+		   <result name="success" type="json"></result>  
+	   </action>
+	</package>
+</struts>

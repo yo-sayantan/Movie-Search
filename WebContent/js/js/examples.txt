@@ -1,0 +1,1173 @@
+var departments = Ext.create('Ext.data.Store', {
+    fields: ['abbr', 'name'],
+    data : [
+        {"abbr":"CSE", "name":"Computer Science"},
+        {"abbr":"IT", "name":"Information Technology"},
+        {"abbr":"ETC", "name":"Electronics"},
+        {"abbr":"EEE", "name":"Electricals"},
+        {"abbr":"CV", "name":"Civil"},
+        {"abbr":"Mec", "name":"Mechanical"},
+        {"abbr":"BioT", "name":"BioTechnology"}
+    ]
+});
+}, {
+            xtype: 'combobox',
+            reference: 'states',
+            publishes: 'value',
+            fieldLabel: 'Select State',
+            displayField: 'state',
+            anchor: '-15',
+            store: {
+                type: 'states'
+            },
+            minChars: 0,
+            queryMode: 'local',
+            typeAhead: true
+            
+	Ext.create('Ext.form.Panel', {
+	    width: 300,
+	    bodyPadding: 10,
+	    renderTo: Ext.getBody(),
+	    items:[{
+	        xtype: 'radiogroup',
+	        fieldLabel: 'Two Columns',
+	        columns: 2,
+	        vertical: true,
+	        items: [
+	            { boxLabel: 'Item 1', name: 'rb', inputValue: '1' },
+	            { boxLabel: 'Item 2', name: 'rb', inputValue: '2', checked: true},
+	            { boxLabel: 'Item 3', name: 'rb', inputValue: '3' },
+	            { boxLabel: 'Item 4', name: 'rb', inputValue: '4' },
+	            { boxLabel: 'Item 5', name: 'rb', inputValue: '5' },
+	            { boxLabel: 'Item 6', name: 'rb', inputValue: '6' }
+	        ]
+	    }]
+	});
+	
+	
+	items: [{
+            items: [{
+                xtype: 'fieldcontainer',
+                layout: {
+                    type: 'hbox'
+                },
+                width: '100%',
+                items: [{
+                    xtype: 'textfield',
+                    padding: 10,
+                    width: '50vw',
+                    flex: 1,
+                    fieldLabel: 'First Name',
+                    name: 'FirstName'
+                }, {
+                    xtype: 'textfield',
+                    padding: 10,
+                    flex: 1,
+                    width: '50vw',
+                    fieldLabel: 'Last Name',
+                    name: 'LastName'
+                }]
+            }, {
+                fieldLabel: 'First Name',
+                name: 'first_name',
+                xtype: 'textfield',
+                allowBlank: false
+            }, {
+                fieldLabel: 'Phone Number',
+                name: 'phone_number',
+                xtype: 'textfield',
+                allowBlank: false,
+                minLength: 10
+            }, {
+                xtype: 'datefield',
+                fieldLabel: 'DOB',
+                allowBlank: false
+            }, {
+                xtype: 'radiogroup',
+                fieldLabel: 'Year',
+                // bodyStyle: 'margin: 220px;',
+                columns: 2,
+                vertical: false,
+                width: '100%',
+                items: [{
+                    boxLabel: '1st',
+                    name: 'rb',
+                    inputValue: '1',
+                    checked: true
+                }, {
+                    boxLabel: '2nd',
+                    name: 'rb',
+                    inputValue: '2'
+                }, {
+                    boxLabel: '3rd',
+                    name: 'rb',
+                    inputValue: '3'
+                }, {
+                    boxLabel: '4th',
+                    name: 'rb',
+                    inputValue: '4'
+                }]
+            }, {
+                xtype: 'fieldcontainer',
+                fieldLabel: 'Room Type',
+                defaultType: 'checkboxfield',
+                vertical: false,
+                items: [{
+                    boxLabel: 'AC',
+                    inputValue: '1',
+                    id: 'ac'
+                }, {
+                    boxLabel: 'Non AC',
+                    inputValue: '2',
+                    id: 'nac'
+                }, {
+                    boxLabel: 'No Choice',
+                    inputValue: '3',
+                    checked: true,
+                    id: 'nota'
+                }]
+            }]
+        }, {
+            defaults: {
+                layout: 'form',
+                xtype: 'container',
+                columns: 2,
+                vertical: true,
+            },
+            items: [{
+                    fieldLabel: 'Last Name',
+                    name: 'last_name',
+                    xtype: 'textfield',
+                    allowBlank: false
+                }, {
+                    fieldLabel: 'Email Address',
+                    name: 'email',
+                    xtype: 'textfield',
+                    vtype: 'email'
+                }, {
+                    xtype: 'combo',
+                    fieldLabel: 'Department',
+                    queryMode: 'local',
+                    store: ['CSE', 'IT', 'ETC', 'EEE', 'Civil', 'Mech', 'BioTech']
+                }]
+                // }, {
+                //     items: [{
+                //     xtype: 'radiogroup',
+                //     fieldLabel: 'Semester',
+                //     width: '20%',
+                //     vertical: false,
+                //     items: [
+                //         { boxLabel: 'Semester 1', name: 'rb', inputValue: '1', checked: true },
+                //         { boxLabel: 'Semester 2', name: 'rb', inputValue: '2' },
+                //         { boxLabel: 'Semester 3', name: 'rb', inputValue: '3' },
+                //         { boxLabel: 'Semester 4', name: 'rb', inputValue: '4' }
+                //     ]   
+                //     }]
+        }],
+        buttonAlign: 'center',
+        buttons: [{
+                text: 'Submit'
+            }, {
+                text: 'Reset'
+            }]
+            // buttons: [{
+            //     text: 'Submit',
+            //     buttonAlign: 'center'
+            //     handler: function () {
+            //         var form = this.up('form').getForm();
+            //         if (form.isValid()) {
+            //             form.submit({
+            //                 success: function (form, action) {
+            //                     Ext.Msg.alert('Success', action.result.message);
+            //                 },
+            //                 failure: function (form, action) {
+            //                     Ext.Msg.alert('Failed', action.result ? action.result.message : 'No response');
+            //                 }
+            //             });
+            //         }
+            //     }
+            // }]
+            
+            
+ Ext.onReady(function () {
+    var filterPanel = Ext.create('Ext.form.Panel', {
+        title: 'Registration Form',
+        renderTo: Ext.getBody(),
+        frame: true,
+        resizable: true,
+        layout: {
+            type: 'vbox',
+            align: 'center',
+            width: '100% fixed',
+            pack: 'center'
+        },
+        items: [{
+            defaults: {
+                layout: 'form',
+                xtype: 'container',
+                width: 'fixed',
+                padding: '0 50 0 50',
+            },
+            layout: 'hbox',
+            url: 'saveform.do',
+            items: [{
+                items: [{
+                    flex: 1,
+                    fieldLabel: 'First Name',
+                    name: 'firstname',
+                    xtype: 'textfield',
+                    emptyText: 'Abc',
+                    allowBlank: false
+                }, {
+                    flex: 1,
+                    fieldLabel: 'Last Name',
+                    name: 'lastname',
+                    xtype: 'textfield',
+                    emptyText: 'Xyz',
+                    allowBlank: false
+                }, {
+                    xtype: 'datefield',
+                    fieldLabel: 'DOB',
+                    name: 'dob',
+                    emptyText: '01/01/2000',
+                    allowBlank: false
+
+                }, {
+                    xtype: 'fieldcontainer',
+                    width: 300,
+                    fieldLabel: 'Room Type',
+                    name: 'roomtype',
+                    defaultType: 'checkboxfield',
+                    vertical: false,
+                    items: [{
+                        boxLabel: 'AC',
+                        inputValue: '1',
+                        id: 'ac'
+                    }, {
+                        boxLabel: 'Non AC',
+                        inputValue: '2',
+                        id: 'nac'
+                    }, {
+                        boxLabel: 'No Choice',
+                        inputValue: '3',
+                        checked: true,
+                        id: 'nota'
+                    }]
+                }]
+            }, {
+                defaults: {
+                    layout: 'form',
+                    xtype: 'container',
+                    columns: 2,
+                    vertical: true,
+                },
+                width: '100',
+                items: [{
+                    flex: 1,
+                    fieldLabel: 'Phone Number',
+                    name: 'phonenumber',
+                    xtype: 'textfield',
+                    emptyText: '9876543210',
+                    allowBlank: false,
+                    minLength: 10
+                }, {
+                    fieldLabel: 'Email Address',
+                    name: 'email',
+                    xtype: 'textfield',
+                    emptyText: 'abc@xyz.com',
+                    allowBlank: false,
+                    vtype: 'email'
+                }, {
+                    xtype: 'combo',
+                    fieldLabel: 'Department',
+                    name: 'department',
+                    queryMode: 'local',
+                    allowBlank: false,
+                    store: new Ext.data.SimpleStore({
+                        data: [
+                            ['CSE', 'CSE'],
+                            ['IT', 'IT'],
+                            ['ETC', 'ETC'],
+                            ['EEE', 'EEE'],
+                            ['Civil', 'Civil'],
+                            ['BioTech', 'BioTech'],
+                            ['Mech', 'Mech']
+                        ],
+                        id: 0,
+                        fields: ['value', 'text']
+                    }),
+                }, {
+                    xtype: 'radiogroup',
+                    fieldLabel: 'Year',
+                    name: 'year',
+                    columns: 2,
+                    vertical: true,
+                    width: 300,
+                    items: [{
+                        boxLabel: '1st Year',
+                        name: 'rb',
+                        inputValue: '1',
+                        checked: true
+                    }, {
+                        boxLabel: '2nd Year',
+                        name: 'rb',
+                        inputValue: '2'
+                    }, {
+                        boxLabel: '3rd Year',
+                        name: 'rb',
+                        inputValue: '3'
+                    }, {
+                        boxLabel: '4th Year',
+                        name: 'rb',
+                        inputValue: '4'
+                    }]
+                }]
+            }]
+        }],
+        buttonAlign: 'center',
+        buttons: [{
+            text: 'Submit',
+            id: 'submit',
+            listeners: {
+                'click': function () {
+                    saveToJson;
+                    Ext.Msg.alert('Success', 'Successfully Submitted');
+                }
+            }
+        }, {
+            text: 'Reset',
+            handler: function () {
+                filterPanel.getForm().reset();
+            }
+        }]
+    });
+
+    Ext.define('TeamDataModel', {
+        extend: 'Ext.data.Model',
+        fields: [
+            { name: 'id', type: 'int'},
+            { name: 'name', type: 'string'},
+            { name: 'email', type: 'string'}
+        ]
+    });
+
+    var gridStore = Ext.create('Ext.data.JsonStore', {
+        model: 'TeamDataModel',
+        storeId: 'gridStore',
+        autoLoad: 'true',
+        proxy: {
+           type: 'ajax',
+           url: 'data1.json',
+           reader: {
+                type: 'json',
+                root: 'students'
+            }
+        }
+    });
+
+    var gridPanel = Ext.create('Ext.grid.Panel', {
+        title: 'Student Data',
+        store: 'gridStore',
+		id: 'studgrid',
+		stripeRows: true,
+		collapsible : true,
+        enableColumnMove  :true,
+        enableColumnResize:true,
+        columns: [
+            { text: 'ID', dataIndex: 'id', width: '10%'},
+            { text: 'Name', dataIndex: 'name', flex: 1 },
+            { text: 'Email', dataIndex: 'email', flex: 1 }
+        ],
+        width: 'auto',
+        renderTo: Ext.getBody(),
+		selModel: {
+	        checkOnly: false,
+	        injectCheckbox: 'first',
+	        mode: 'SIMPLE'
+	    },
+	    selType: 'checkboxmodel',
+	    listeners: {
+            change: function(cb, checked) {
+                // me.dsAll.setDisabled(!checked);
+                // Ext.getCmp('sAll').setDisabled(true);
+                var checkedRows = studgrid.getSelectionModel().getSelection();
+                if (checkedRows.length > 0)
+                    Ext.getCmp('dsAll').enable();
+            }
+        },
+        // listeners: {
+        //     change: function(field, newValue, oldValue, eOpts){
+        //         console.log('change:' + field.fieldLabel + ' ' + newValue.rb);
+        //     }
+        // },
+        // items: [{
+        //     xtype: 'checkboxmodel',
+        //     listeners: {
+        //         change: function (checkbox, newValue, oldValue, eOpts) {
+        //             // var combo = checkbox.up( 'form' ).down( 'combobox' );
+        //             // if( newValue ) {
+        //             //     combo.show();
+        //             // }
+        //             // else {
+        //             //     combo.hide();
+        //             // }
+        //         }
+        //     }
+        // }],
+
+	    buttons: [{
+	        text: 'Select All',
+	        id: 'sAll',
+	        flag: true,
+	        handler: function funcSAll (checked) {
+	            Ext.getCmp('studgrid').getSelectionModel().selectAll();
+	            Ext.getCmp('sAll').setDisabled(checked);
+	            Ext.getCmp('dsAll').setDisabled(!checked);
+	        }
+	    }, {
+	        text: 'Deselect All',
+	        id: 'dsAll',
+	        disabled: true,
+	        flag: true,
+	        handler: function funcDsAll (flag) {
+	            Ext.getCmp('studgrid').getSelectionModel().deselectAll();
+	            Ext.getCmp('dsAll').setDisabled(flag);
+	            Ext.getCmp('sAll').setDisabled(!flag);
+	        }
+	    }, {
+	        text:'Print Selected Record',
+	        handler: function () {
+	            var selection = Ext.getCmp('studgrid').getSelection();
+	            if(selection.length) {
+	                let name='', data='Selected Record(s): <br>';
+	                selection.map(item => {
+	                    data += item.get('name')+', '+item.get('email') + '<br>';
+	                });
+	                Ext.Msg.alert('Selected Record',data);
+	            } else {
+	                Ext.Msg.alert('Error','Please select at least 1 record');
+	            }
+	        }
+	    }, {
+	        text: 'Refresh',
+            handler: function() {
+                Ext.getCmp('studgrid').store.reload();
+            }
+	    }]
+    });
+
+    var saveToJson = new Ext.data.JsonStore({
+        url: 'data1.json',
+        root: 'students',
+        fields: ['phonenumber', 'lastname', 'email']
+    });
+})
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ==========================================================================
+ 
+ Ext.onReady(function () {
+    var filterPanel = Ext.create('Ext.form.Panel', {
+        title: 'Registration Form',
+        renderTo: Ext.getBody(),
+        frame: true,
+        resizable: true,
+        layout: {
+            type: 'vbox',
+            align: 'center',
+            width: '100% fixed',
+            height: '55vh',
+            pack: 'center'
+        },
+        items: [{
+            defaults: {
+                layout: 'form',
+                xtype: 'container',
+                width: 'fixed',
+                padding: '0 50 0 50',
+            },
+            layout: 'hbox',
+            url: 'saveform.do',
+            items: [{
+                items: [{
+                    flex: 1,
+                    fieldLabel: 'First Name',
+                    name: 'firstname',
+                    xtype: 'textfield',
+                    emptyText: 'Abc',
+                    allowBlank: false
+                }, {
+                    flex: 1,
+                    fieldLabel: 'Last Name',
+                    name: 'lastname',
+                    xtype: 'textfield',
+                    emptyText: 'Xyz',
+                    allowBlank: false
+                }, {
+                    xtype: 'datefield',
+                    fieldLabel: 'DOB',
+                    name: 'dob',
+                    emptyText: '01/01/2000',
+                    allowBlank: false
+
+                }, {
+                    xtype: 'fieldcontainer',
+                    width: 300,
+                    fieldLabel: 'Room Type',
+                    name: 'roomtype',
+                    defaultType: 'checkboxfield',
+                    vertical: false,
+                    items: [{
+                        boxLabel: 'AC',
+                        inputValue: '1',
+                        id: 'ac',
+                        name: 'ac'
+                    }, {
+                        boxLabel: 'Non AC',
+                        inputValue: '2',
+                        id: 'nac',
+                        name: 'nac',
+                    }, {
+                        boxLabel: 'No Choice',
+                        inputValue: '3',
+                        checked: true,
+                        id: 'nota',
+                        name: 'nota',
+                    }]
+                }]
+            }, {
+                defaults: {
+                    layout: 'form',
+                    xtype: 'container',
+                    columns: 2,
+                    vertical: true,
+                },
+                width: '100',
+                items: [{
+                    flex: 1,
+                    fieldLabel: 'Phone Number',
+                    name: 'phonenumber',
+                    xtype: 'textfield',
+                    emptyText: '9876543210',
+                    allowBlank: false,
+                    minLength: 10
+                }, {
+                    fieldLabel: 'Email Address',
+                    name: 'email',
+                    xtype: 'textfield',
+                    emptyText: 'abc@xyz.com',
+                    allowBlank: false,
+                    vtype: 'email'
+                }, {
+                    xtype: 'combo',
+                    fieldLabel: 'Department',
+                    name: 'department',
+                    queryMode: 'local',
+                    allowBlank: false,
+                    store: new Ext.data.SimpleStore({
+                        data: [
+                            ['CSE', 'CSE'],
+                            ['IT', 'IT'],
+                            ['ETC', 'ETC'],
+                            ['EEE', 'EEE'],
+                            ['Civil', 'Civil'],
+                            ['BioTech', 'BioTech'],
+                            ['Mech', 'Mech']
+                        ],
+                        id: 0,
+                        fields: ['value', 'text']
+                    }),
+                }, {
+                    xtype: 'radiogroup',
+                    fieldLabel: 'Year',
+                    name: 'year',
+                    columns: 2,
+                    vertical: true,
+                    width: 300,
+                    items: [{
+                        boxLabel: '1st Year',
+                        name: 'rb',
+                        inputValue: '1',
+                        checked: true
+                    }, {
+                        boxLabel: '2nd Year',
+                        name: 'rb',
+                        inputValue: '2'
+                    }, {
+                        boxLabel: '3rd Year',
+                        name: 'rb',
+                        inputValue: '3'
+                    }, {
+                        boxLabel: '4th Year',
+                        name: 'rb',
+                        inputValue: '4'
+                    }]
+                }]
+            }]
+        }],
+        buttonAlign: 'center',
+        buttons: [{
+            text: 'Submit',
+            id: 'submit',
+            listeners: {
+                'click': function () {
+                    saveToJson;
+                    Ext.Msg.alert('Success', 'Successfully Submitted');
+                }
+            }
+        }, {
+            text: 'Reset',
+            handler: function () {
+                filterPanel.getForm().reset();
+            }
+        }]
+    });
+
+    Ext.define('StudentModel', {
+        extend: 'Ext.data.Model',
+        fields: [{
+            name: 'id',
+            type: 'int'
+        }, {
+            name: 'firstname',
+            type: 'string'
+        }, {
+            name: 'lastname',
+            type: 'string'
+        }, {
+            name: 'email',
+            type: 'string'
+        }, {
+            name: 'dob',
+            type: 'string'
+        }, {
+            name: 'roomtype',
+            type: 'string'
+        }, {
+            name: 'phonenumber',
+            type: 'string'
+        }, {
+            name: 'department',
+            type: 'string'
+        }, {
+            name: 'year',
+            type: 'int'
+        }]
+    });
+
+    var gridStore = Ext.create('Ext.data.JsonStore', {
+        extend: 'Ext.data.Store',
+        model: 'StudentModel',
+        storeId: 'gridStore',
+        autoLoad: {
+            start: 0,
+            limit: 5
+        },
+        pageSize: 5,
+        autoLoad: true,
+        autoSync: false,
+        proxy: {
+            type: 'ajax',
+            url: 'data1.json',
+            reader: {
+                type: 'json',
+                root: 'students',
+                totalProperty: 'total'
+            }
+        }
+    });
+
+    var itemsPerPage = 5;
+    var gridPanel = Ext.create('Ext.grid.Panel', {
+        title: 'Student Data',
+        store: 'gridStore',
+        id: 'studgrid',
+        stripeRows: true,
+        collapsible: true,
+        enableColumnMove: true,
+        enableColumnResize: true,
+        enablePaging: true,
+        columns: [{
+            text: 'First Name',
+            dataIndex: 'firstname',
+            flex: 1
+        }, {
+            text: 'Last Name',
+            dataIndex: 'lastname',
+            flex: 1
+        }, {
+            text: 'Email',
+            dataIndex: 'email',
+            flex: 2.5
+        }, {
+            text: 'DOB',
+            dataIndex: 'dob',
+            flex: 1
+        }, {
+            text: 'Room Type',
+            dataIndex: 'roomtype'
+        }, {
+            text: 'Phone Number',
+            dataIndex: 'phonenumber',
+            flex: 2,
+        }, {
+            text: 'Department',
+            dataIndex: 'department'
+        }, {
+            text: 'Year',
+            dataIndex: 'year'
+        }],
+        dockedItems: [{
+            xtype: 'pagingtoolbar',
+            store: 'gridStore',
+            dock: 'bottom',
+            displayInfo: true
+        }],
+        width: 'auto',
+        height: '45vh',
+        renderTo: Ext.getBody(),
+        selModel: {
+            checkOnly: false,
+            injectCheckbox: 'first',
+            mode: 'SIMPLE'
+        },
+        selType: 'checkboxmodel',
+        buttons: [{
+            text: 'Select All',
+            id: 'selectAll',
+            handler: function () {
+                Ext.getCmp('studgrid').getSelectionModel().selectAll();
+                Ext.getCmp('selectAll').setDisabled(true);
+                Ext.getCmp('deselectAll').setDisabled(false);
+            }
+        }, {
+            text: 'Deselect All',
+            id: 'deselectAll',
+            disabled: true,
+            handler: function () {
+                Ext.getCmp('studgrid').getSelectionModel().deselectAll();
+                Ext.getCmp('deselectAll').setDisabled(true);
+                Ext.getCmp('selectAll').setDisabled(false);
+            }
+        }, {
+            text: 'Show Record',
+            id: 'print',
+            disabled: true,
+            handler: function () {
+                records.show();
+            }
+        }, {
+            text: 'Print Selected Records',
+            id: 'records',
+            handler: function () {
+                var selection = Ext.getCmp('studgrid').getSelection();
+                if (selection.length) {
+                    let name = '',
+                        data = 'Selected Record(s): <br>';
+                    selection.map(item => {
+                        data += item.get('name') + ', ' + item.get('email') + '<br>';
+                    });
+                    Ext.Msg.alert('Selected Record', data);
+                } else
+                    Ext.Msg.alert('Error', 'Please select all at least 1 record');
+            }
+        }],
+
+        listeners: {
+            select: function (selModel, record, index, options) {
+                var selection = Ext.getCmp('studgrid').getSelection();
+                // alert(record.get('email'));
+                if (selection.length)
+                    Ext.getCmp('deselectAll').setDisabled(false);
+                if (selection.length == gridStore.getTotalCount())
+                    Ext.getCmp('selectAll').setDisabled(true);
+                if (selection.length == 1)
+                    Ext.getCmp('print').setDisabled(false);
+                if (selection.length > 1)
+                    Ext.getCmp('print').setDisabled(true);
+            },
+            deselect: function (selModel, record, index, options) {
+                var selection = Ext.getCmp('studgrid').getSelection();
+                if (selection.length == 0) {
+                    Ext.getCmp('deselectAll').setDisabled(true);
+                    Ext.getCmp('selectAll').setDisabled(false);
+                    Ext.getCmp('print').setDisabled(true);
+                }
+                if (selection.length == 1)
+                    Ext.getCmp('print').setDisabled(false);
+                if (selection.length)
+                    Ext.getCmp('selectAll').setDisabled(false);
+            },
+            save: function (selModel, record, index, options) {
+                var rows = record;
+            }
+        }
+    });
+
+    var saveToJson = new Ext.data.JsonStore({
+        url: 'data1.json',
+        root: 'students',
+        fields: ['phonenumber', 'lastname', 'email']
+    });
+
+    gridStore.load({
+        params: {
+            start: 0,
+            limit: 5
+        }
+    });
+
+    var records = new Ext.form.Panel({
+        width: 500,
+        height: 400,
+        title: 'Record Details',
+        floating: true,
+        closable: true,
+        frame: true,
+        resizable: true,
+        // layout: {
+        //     type: 'vbox',
+        //     align: 'center',
+        //     width: '100% fixed',
+        //     height: '55vh',
+        //     pack: 'center'
+        // },
+        // items: [{
+        //     defaults: {
+        //         layout: 'form',
+        //         xtype: 'container',
+        //         width: 'fixed',
+        //         padding: '0 50 0 50',
+        //     },
+        //     layout: 'hbox',
+        //     url: 'saveform.do',
+        //     items: [{
+        //         items: [{
+        //             flex: 1,
+        //             fieldLabel: 'First Name',
+        //             name: 'firstname',
+        //             xtype: 'textfield',
+        //             emptyText: 'Abc',
+        //             allowBlank: false
+        //         }, {
+        //             flex: 1,
+        //             fieldLabel: 'Last Name',
+        //             name: 'lastname',
+        //             xtype: 'textfield',
+        //             emptyText: 'Xyz',
+        //             allowBlank: false
+        //         }, {
+        //             xtype: 'datefield',
+        //             fieldLabel: 'DOB',
+        //             name: 'dob',
+        //             emptyText: '01/01/2000',
+        //             allowBlank: false
+
+        //         }, {
+        //             xtype: 'fieldcontainer',
+        //             width: 300,
+        //             fieldLabel: 'Room Type',
+        //             name: 'roomtype',
+        //             defaultType: 'checkboxfield',
+        //             vertical: false,
+        //             }]
+        //         }]
+        //     }, {
+        //         defaults: {
+        //             layout: 'form',
+        //             xtype: 'container',
+        //             columns: 2,
+        //             vertical: true,
+        //         },
+        //         width: '100',
+        //         items: [{
+        //             flex: 1,
+        //             fieldLabel: 'Phone Number',
+        //             name: 'phonenumber',
+        //             xtype: 'textfield',
+        //             emptyText: '9876543210',
+        //             allowBlank: false,
+        //             minLength: 10
+        //         }, {
+        //             fieldLabel: 'Email Address',
+        //             name: 'email',
+        //             xtype: 'textfield',
+        //             emptyText: 'abc@xyz.com',
+        //             allowBlank: false,
+        //             vtype: 'email'
+        //         }, {
+        //             xtype: 'combo',
+        //             fieldLabel: 'Department',
+        //             name: 'department',
+        //             queryMode: 'local',
+        //             allowBlank: false,
+        //         }, {
+        //             xtype: 'radiogroup',
+        //             fieldLabel: 'Year',
+        //             name: 'year',
+        //             columns: 2,
+        //             vertical: true,
+        //             width: 300,
+        //         }]
+        //     }]
+        // }],
+        buttonAlign: 'center',
+        buttons: [{
+            text: 'Close',
+            id: 'close',
+            listeners: {
+                click: function () {
+                    records.close();
+                }
+            }
+        }]
+    });
+})
+\
+
+
+package com.highradius;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.catalina.connector.Response;
+
+import com.google.gson.*;
+
+@WebServlet("/extractjson")
+public class Servlet extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Connection dbCon = null;
+        ResultSet rs = null;
+        PrintWriter out = response.getWriter();
+        
+		String url = "jdbc:mysql://localhost:3306/project";
+		String user = "root";
+		String pass = "root";
+//		String val = request.getParameter("value");
+//		String val1 = request.getParameter("pk_id");
+		String query = "Select title FROM film";
+//		if(val != null)
+//			query = "Select * FROM customer_invoice WHERE isOpen=1 HAVING customer_number LIKE '%" + val +"%'";
+//		if(val1 != null)
+//			query = "Select * FROM customer_invoice WHERE isOpen=1 HAVING pk_id IN " + val1;
+		
+//		response.setContentType("Application/json");
+//		response.setCharacterEncoding("UTF-8");
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+//			Connecting with the DB with URL , UserID and Password
+			dbCon = DriverManager.getConnection(url,user,pass);	
+			if (dbCon != null)              
+                System.out.println("SQL DataBase Connected");             
+            else {            
+                System.out.println("Not Connected");
+                return;
+            }
+			System.out.println("EXTRACT JSON...");
+			System.out.println("Extracting from DataBase...");
+			System.out.println("Executing Query...");       									//	passQuery is a function to actual passing query and writing data to the DB
+			Statement stmt = dbCon.createStatement();
+			rs = stmt.executeQuery(query);
+			System.out.println("Data extracted !!");
+			System.out.println("Writing to JSON...");
+			String json_str = writeToJSON(rs);
+			System.out.println("Data Successfully written to JSON file");       
+			out.print(json_str);
+			System.out.println("Data Successfully uploaded as JSON file\n");
+		}
+		catch (ClassNotFoundException cnfe) {
+			System.out.println("Class not found or Driver Error");
+		}
+		catch (SQLException sqle) {
+			System.out.println("Database Connection error or SQL Query error");
+		}
+		finally {
+			try {
+				if(dbCon != null)
+					dbCon.close();
+			}
+			catch(Exception e) {
+				System.out.println("Could not close DataBase Connection");
+			}
+			try {
+				if(rs != null)
+					rs.close();
+			}
+			catch(Exception e) {
+				System.out.println("Could not close ResultSet");
+			}
+			try {
+				if(out != null)
+					out.flush();
+			}
+			catch(Exception e) {
+				System.out.println("Could not close Print Writer");
+			}
+		}
+    }
+	
+	private static String writeToJSON(ResultSet rs) throws IOException, SQLException {
+		List<pojo> invData = new ArrayList<>();		//	Declaring an array list of datatype as POJO class
+		pojo iData = new pojo();
+		int count = 0;
+		Gson gson = new Gson();
+		GsonBuilder builder = new GsonBuilder(); 
+		while(rs.next()) {
+//			Now setting all the values of the POJO Class with suitable datatypes
+			try { 
+	            iData.setFilm_id(rs.getInt("film_id"));
+
+	            iData.setTitle(rs.getString("title"));
+	            iData.setDescription(rs.getString("description"));
+	            iData.setRelease_year(rs.getInt("release_year"));
+	            iData.setRating(rs.getString("rating"));
+	            iData.setSpecial_features(rs.getString("special_features"));
+	            iData.setImdb_rating(rs.getFloat("imdb_rating"));
+	            iData.setCountry(rs.getString("country"));
+            	
+            	count++;
+	            invData.add(iData);
+	            iData = new pojo();
+	        } 
+	        catch (NumberFormatException nfe) {
+	        	System.out.println("Number Format Exception");
+	        	continue;
+	        }
+	        catch (ArrayIndexOutOfBoundsException aeobe) {
+	        	System.out.println("Array Index Out Of Bounds Exception");
+	        }  
+		}
+		
+	    builder.setPrettyPrinting();   
+	    gson = builder.create(); 
+	    String json_str = gson.toJson(invData);
+	    System.out.println(count+" Rows uploaded");
+		return json_str;
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
+}
+
+
+text: 'Edit',
+	            id: 'print',
+				xtype: 'button',
+	            disabled: true,
+	            handler: function () {
+	                Ext.getCmp('title1').setValue(rec.data.title);
+	                Ext.getCmp('year1').setValue(rec.data.release_year);
+	                Ext.getCmp('dirname1').setValue(rec.data.director);
+	                Ext.getCmp('language1').setValue(rec.data.language);
+	                Ext.getCmp('plot1').setValue(rec.data.description);
+	                Ext.getCmp('genre1').setValue(rec.data.special_features);
+	                Ext.getCmp('imdb1').setValue(rec.data.imdb_rating);
+					Ext.getCmp('id1').setValue(rec.data.film_id);
+	                records.show();
+	            }
+	            
+	            
+	            //    gridStore.load({
+//        params: {
+//            start: 0,
+//            limit: 10,
+//			query: "select"
+//        }
+//    });
+	
+//	var searchReq = Ext.Ajax.request({
+//		form = Ext.getCmp('filterPanel').getForm(),
+//		var form = button.up('filterPanel').getForm(),
+//	    url: './SearchServlet',
+//		type: 'ajax',
+//	    method: 'POST',          
+//	    params: {
+//	        title: 'aa',
+//	    },
+//		model: 'MovieModel',
+//        storeId: 'gridStore',
+//	    headers: {
+//		    'Content-Type': 'application/json'
+//		},
+//		success: function (response) {
+//			Ext.Msg.alert('Success', 'Request Sent.');
+//		},
+//		failure: function (response) {
+//		    Ext.Msg.alert('Failed', 'Request Failed.');
+//		}
+//	    handler: function() {
+//			Ext.Msg.alert('Error', id);
+//			studgrid.getView().refresh()
+//		}
+//	});
+	
+//	var win = Ext.create('Ext.window.Window', {
+//	    layout: 'fit',
+//	    items: [ records ]
+//	});
+
+
+
+listeners: {
+			select: function(selModel, record, index, options) {
+				selection = Ext.getCmp('studgrid').getSelection();
+				rec = record;
+				if (selection.length == 1)
+					Ext.getCmp('edit').setDisabled(false);
+				if (selection.length > 1)
+					Ext.getCmp('edit').setDisabled(true);
+			},
+			deselect: function(selModel, record, index, options) {
+				selection = Ext.getCmp('studgrid').getSelection();
+				if (selection.length == 1)
+					Ext.getCmp('edit').setDisabled(false);
+				if (selection.length)
+					Ext.getCmp('selectAll').setDisabled(false);
+			}
+		}
+		
+		
+		
+		<servlet>
+   <servlet-name>GridServlet</servlet-name>
+   <servlet-class>com.highradius.GridServlet</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>ExtraServlet</servlet-name>
+   <servlet-class>com.highradius.ExtraServlet</servlet-class>
+</servlet>
+ 
+<servlet-mapping>
+   <servlet-name>GridServlet</servlet-name>
+   <url-pattern>/GridServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+   <servlet-name>ExtraServlet</servlet-name>
+   <url-pattern>/ExtraServlet</url-pattern>
+</servlet-mapping>
